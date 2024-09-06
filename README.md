@@ -1,16 +1,15 @@
-# VOD devkit
-Welcome to the downloadable driverless vehicle software page. Click on the green box above labeled "Code" to download a copy of the software described below.
-
+# VoD-P devkit
+Welcome to the downloadable driverless vehicle software page for the View-of-Delft Prediction (VoD-P) dataset. Click on the green box above labeled "Code" to download a copy of the software described below.
 
 ![](https://www.vod.org/public/images/road.jpg)
 
 ## Overview
 - [Changelog](#changelog)
 - [Devkit setup](#devkit-setup)
-- [VOD](#vod)
-  - [VOD setup](#vod-setup)
-  - [Panoptic VOD](#panoptic-vod)
-  - [VOD-lidarseg](#vod-lidarseg)
+- [VoD-P](#vod)
+  - [VoD-P setup](#vod-setup)
+  - [Panoptic VoD](#panoptic-vod)
+  - [VoD-P lidarseg](#vod-lidarseg)
   - [Prediction challenge](#prediction-challenge)
   - [CAN bus expansion](#can-bus-expansion)
   - [Map expansion](#map-expansion)
@@ -23,25 +22,25 @@ Welcome to the downloadable driverless vehicle software page. Click on the green
 
 
 ## Devkit setup
-The devkit is tested for Python 3.X.
+The devkit is tested for Python >=3.6.
 To install Python, please check [here](https://github.com/nutonomy/vod-devkit/blob/master/docs/installation.md#install-python).
 
-Our devkit is available and can be installed via [pip](https://pip.pypa.io/en/stable/installing/) :
+TODO: Our devkit is available and can be installed via [pip](https://pip.pypa.io/en/stable/installing/) :
 ```
 pip install vod-devkit
 ```
 For an advanced installation, see [installation](https://github.com/nutonomy/vod-devkit/blob/master/docs/installation.md) for detailed instructions.
 
 
-## VOD
+## VoD-P
 
-### VOD setup
-To download VOD you need to go to the [Download page](), 
-create an account and agree to the VOD [Terms of Use]().
+### VoD-P setup
+To download VoD-P you need to go to the [Download page](), 
+create an account and agree to the VoD [Terms of Use]().
 After logging in you will see multiple archives. 
 For the devkit to work you will need to download *all* archives.
 Please unpack the archives to the `/data/sets/vod` folder \*without\* overwriting folders that occur in multiple archives.
-Eventually you should have the following folder structure:
+Eventually, you should have the following folder structure:
 ```
 /data/sets/vod
     samples	-	Sensor data for keyframes.
@@ -57,15 +56,15 @@ If you want to use another folder, specify the `dataroot` parameter of the VOD c
 
 ### Map versions
 Here we give a brief overview of the different map versions:
-- **VOD v1.0**: 
+- **VoD-P v1.0**: 
 
-### Getting started with VOD
+### Getting started with VoD-P
 
 
 ## Known issues
 
 ## Citation
-Please use the following citation when referencing [VOD]():
+Please use the following citation when referencing [VoD-P]():
 ```
 @article{
 }
