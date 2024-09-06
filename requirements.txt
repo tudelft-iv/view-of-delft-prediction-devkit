@@ -1,0 +1,3 @@
+-r requirements/requirements_base.txt
+-r requirements/requirements_prediction.txt
+# -r requirements/requirements_tracking.txt  # Uncomment this for the tracking code
