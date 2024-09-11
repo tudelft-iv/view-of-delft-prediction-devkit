@@ -1,9 +1,10 @@
 # The View-of-Delft Prediction devkit
-Welcome to the downloadable driverless vehicle software page for the View-of-Delft Prediction (VoD-P) dataset. Click on the green box above labeled "Code" to download a copy of the software described below.
+Welcome to the View-of-Delft Prediction (VoD-P) development kit. This repository contains the code and documentation associated with the VoD-P dataset.
 
 ![](https://www.vod.org/public/images/road.jpg)
 
 ## Overview
+- [Introduction](#introduction)
 - [Changelog](#changelog)
 - [Devkit setup](#devkit-setup)
 - [VoD-P](#vod-p)
@@ -11,6 +12,12 @@ Welcome to the downloadable driverless vehicle software page for the View-of-Del
   - [Getting started with VoD-P](#getting-started-with-vod-p)
 - [Known issues](#known-issues)
 - [Citation](#citation)
+
+## Introduction 
+The View-of-Delft Prediction dataset is an extension of the [View-of-Delft dataset](https://github.com/tudelft-iv/view-of-delft-dataset/tree/main). It contains the 3D object annotations of the original dataset and additionally provides accurate 6-DoF global localisation and semantic map data.
+
+The dataset is available in a format based on the [nuScenes dataset](https://www.nuscenes.org/), and hence this development kit is a modified version of the [nuScenes devkit](https://github.com/nutonomy/nuscenes-devkit).
+
 
 ## Changelog
 [202-09-11] Released the View-of-Delft Prediction dataset and development kit.
@@ -39,7 +46,7 @@ Unzip the file and you should have the following folder structure:
 
 
 ### Getting started with VoD-P
-TODO
+
 
 ## Known issues
 N/A
