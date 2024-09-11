@@ -13,7 +13,7 @@ Welcome to the downloadable driverless vehicle software page for the View-of-Del
 - [Citation](#citation)
 
 ## Changelog
-N/A
+[202-09-11] Released the View-of-Delft Prediction dataset and development kit.
 
 ## Devkit setup
 The devkit is tested for Python >=3.6.
@@ -23,26 +23,19 @@ TODO: Our devkit is available and can be installed via [pip](https://pip.pypa.io
 ```
 pip install vod-devkit
 ```
-For an advanced installation, see [installation](https://github.com/nutonomy/vod-devkit/blob/master/docs/installation.md) for detailed instructions.
 
 
 ## VoD-P
 
 ### VoD-P setup
-To download VoD-P you need to go to the [Download page](), 
-create an account and agree to the VoD [Terms of Use]().
-After logging in you will see multiple archives. 
-For the devkit to work you will need to download *all* archives.
-Please unpack the archives to the `/data/sets/vod` folder \*without\* overwriting folders that occur in multiple archives.
-Eventually, you should have the following folder structure:
+To download VoD-P, follow the instruction at the main [View-of-Delft dataset page](https://github.com/tudelft-iv/view-of-delft-dataset/tree/main#Access).
+Download the zipfile when you receive the access link. 
+Unzip the file and you should have the following folder structure:
 ```
 /data/sets/vod
-    samples	-	Sensor data for keyframes.
-    sweeps	-	Sensor data for intermediate frames.
-    maps	-	Folder for all map files: rasterized .png images and vectorized .json files.
-    v1.0-*	-	JSON tables that include all the meta data and annotations. Each split (trainval, test, mini) is provided in a separate folder.
+    maps	-	Folder for all map files (vectorized .json files).
+    v1.0-*	-	JSON tables that include all the meta data and annotations. Each split (trainval, test) is provided in a separate folder.
 ```
-If you want to use another folder, specify the `dataroot` parameter of the VOD class (see tutorial).
 
 
 ### Getting started with VoD-P
@@ -52,7 +45,7 @@ TODO
 N/A
 
 ## Citation
-Please use the following citation when referencing [VoD-P](https://ieeexplore.ieee.org/abstract/document/10493110):
+Please use the following citation when referencing the [View-of-Delft (VoD-P) dataset](https://ieeexplore.ieee.org/abstract/document/10493110):
 ```
 @article{boekema2024vodp,
   author={Boekema, Hidde J-H. and Martens, Bruno K.W. and Kooij, Julian F.P. and Gavrila, Dariu M.},
@@ -79,6 +72,7 @@ The [View-of-Delft (VoD) dataset](https://ieeexplore.ieee.org/document/9699098) 
   pages={4961-4968},
   doi={10.1109/LRA.2022.3147324}}
 ```
+
 
 
 
