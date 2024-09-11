@@ -1,4 +1,4 @@
-# VoD-P devkit
+# The View-of-Delft Prediction devkit
 Welcome to the downloadable driverless vehicle software page for the View-of-Delft Prediction (VoD-P) dataset. Click on the green box above labeled "Code" to download a copy of the software described below.
 
 ![](https://www.vod.org/public/images/road.jpg)
