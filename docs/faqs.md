@@ -13,5 +13,5 @@ On this page we try to answer questions frequently asked by our users.
     - TODO.
     
 - How can I get more information on the sensors used?
-    - Read the [Sensors and Data]([https://www.vod.org/data-collection](https://github.com/tudelft-iv/view-of-delft-dataset/blob/main/docs/SENSORS_AND_DATA.md)) page.
+    - Read the [Sensors and Data](https://github.com/tudelft-iv/view-of-delft-dataset/blob/main/docs/SENSORS_AND_DATA.md) page.
     - For more information, please contact [viewofdelftdataset@gmail.com](mailto:viewofdelftdataset@gmail.com).
