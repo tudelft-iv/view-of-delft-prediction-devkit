@@ -14,15 +14,15 @@ RUN apt-get update && \
 WORKDIR /vod-dev
 # create conda vod env
 ARG PYTHON_VERSION
-RUN bash -c "conda create -y -n vod python=${PYTHON_VERSION} \
-    && source activate vod \
+RUN bash -c "conda create -y -n vod-devkit python=${PYTHON_VERSION} \
+    && source activate vod-devkit \
     && conda clean --yes --all"
 
 COPY setup/requirements.txt .
 COPY setup/requirements/ requirements/
 # Install Python dependencies inside of the Docker image via pip & Conda.
 # pycocotools installed from conda-forge
-RUN bash -c "source activate vod \
+RUN bash -c "source activate vod-devkit \
     && find . -name "\\*.txt" -exec sed -i -e '/pycocotools/d' {} \; \
     && pip install --no-cache -r /vod-dev/requirements.txt \
     && conda config --append channels conda-forge \
