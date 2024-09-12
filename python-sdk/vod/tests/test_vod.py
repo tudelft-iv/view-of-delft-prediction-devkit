@@ -16,11 +16,11 @@ class TestVOD(unittest.TestCase):
         This is intended to simply run the VOD class to check for import errors, typos, etc.
         """
 
-        assert 'VOd' in os.environ, 'Set VOD env. variable to enable tests.'
-        nusc = VOD(version='v1.0-mini', dataroot=os.environ['VOD'], verbose=False)
+        assert 'VOD' in os.environ, 'Set VOD env. variable to enable tests.'
+        vod_ = VOD(version='v1.0-mini', dataroot=os.environ['VOD'], verbose=False)
 
         # Trivial assert statement
-        self.assertEqual(nusc.table_root, os.path.join(os.environ['VOD'], 'v1.0-mini'))
+        self.assertEqual(vod_.table_root, os.path.join(os.environ['VOD'], 'v1.0-mini'))
 
 
 if __name__ == '__main__':

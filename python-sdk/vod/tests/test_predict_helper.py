@@ -1,5 +1,6 @@
 # View-of-Delft Prediction dev-kit, based on the nuScenes dev-kit.
 # Code written by Freddy Boulton, 2020.
+# Modified by Hidde Boekema, 2024.
 
 import copy
 import unittest
@@ -380,9 +381,9 @@ class TestPredictHelper(unittest.TestCase):
                            'sample_token': 'sample_1'}
         mock_sample = {'token': 'sample_1', 'timestamp': 0}
 
-        nusc = MockVOD([mock_annotation], [mock_sample])
+        vod_ = MockVOD([mock_annotation], [mock_sample])
 
-        helper = PredictHelper(nusc)
+        helper = PredictHelper(vod_)
         self.assertDictEqual(mock_annotation, helper.get_sample_annotation('instance_1', 'sample_1'))
 
     def test_get_future_for_agent_exact_amount(self,):
@@ -394,8 +395,8 @@ class TestPredictHelper(unittest.TestCase):
                         {'token': '5', 'timestamp': 4e6}]
 
         # Testing we can get the exact amount of future seconds available
-        nusc = MockVOD(self.mock_annotations, mock_samples)
-        helper = PredictHelper(nusc)
+        vod_ = MockVOD(self.mock_annotations, mock_samples)
+        helper = PredictHelper(vod_)
         future = helper.get_future_for_agent('1', '1', 3, False)
         np.testing.assert_equal(future, np.array([[1, 1], [2, 2], [3, 3]]))
 
@@ -406,8 +407,8 @@ class TestPredictHelper(unittest.TestCase):
                         {'token': '4', 'timestamp': 3e6},
                         {'token': '5', 'timestamp': 4e6}]
 
-        nusc = MockVOD(self.mock_annotations, mock_samples)
-        helper = PredictHelper(nusc)
+        vod_ = MockVOD(self.mock_annotations, mock_samples)
+        helper = PredictHelper(vod_)
         future = helper.get_future_for_agent('1', '1', 3, True)
         np.testing.assert_allclose(future, np.array([[-1, 1], [-2, 2], [-3, 3]]))
 
@@ -420,8 +421,8 @@ class TestPredictHelper(unittest.TestCase):
                         {'token': '5', 'timestamp': 5.5e6}]
 
         # Testing we do not include data after the future seconds
-        nusc = MockVOD(self.mock_annotations, mock_samples)
-        helper = PredictHelper(nusc)
+        vod_ = MockVOD(self.mock_annotations, mock_samples)
+        helper = PredictHelper(vod_)
         future = helper.get_future_for_agent('1', '1', 3, False)
         np.testing.assert_equal(future, np.array([[1, 1], [2, 2]]))
 
@@ -434,8 +435,8 @@ class TestPredictHelper(unittest.TestCase):
                         {'token': '5', 'timestamp': 3.5e6}]
 
         # Testing we get data if it is after future seconds but within buffer
-        nusc = MockVOD(self.mock_annotations, mock_samples)
-        helper = PredictHelper(nusc)
+        vod_ = MockVOD(self.mock_annotations, mock_samples)
+        helper = PredictHelper(vod_)
         future = helper.get_future_for_agent('1', '1', 3, False)
         np.testing.assert_equal(future, np.array([[1, 1], [2, 2], [3, 3]]))
 
@@ -444,8 +445,8 @@ class TestPredictHelper(unittest.TestCase):
                         {'token': '2', 'timestamp': 3.5e6}]
 
         # Testing we get nothing if the first sample annotation is past our threshold
-        nusc = MockVOD(self.mock_annotations, mock_samples)
-        helper = PredictHelper(nusc)
+        vod_ = MockVOD(self.mock_annotations, mock_samples)
+        helper = PredictHelper(vod_)
         future = helper.get_future_for_agent('1', '1', 3, False)
         np.testing.assert_equal(future, np.array([]))
 
@@ -453,8 +454,8 @@ class TestPredictHelper(unittest.TestCase):
         mock_samples = [{'token': '6', 'timestamp': 0}]
 
         # Testing we get nothing if we're at the last annotation
-        nusc = MockVOD(self.mock_annotations, mock_samples)
-        helper = PredictHelper(nusc)
+        vod_ = MockVOD(self.mock_annotations, mock_samples)
+        helper = PredictHelper(vod_)
         future = helper.get_future_for_agent('1', '6', 3, False)
         np.testing.assert_equal(future, np.array([]))
 
@@ -467,8 +468,8 @@ class TestPredictHelper(unittest.TestCase):
                         {'token': '1', 'timestamp': -4e6}]
 
         # Testing we can get the exact amount of past seconds available
-        nusc = MockVOD(self.mock_annotations, mock_samples)
-        helper = PredictHelper(nusc)
+        vod_ = MockVOD(self.mock_annotations, mock_samples)
+        helper = PredictHelper(vod_)
         past = helper.get_past_for_agent('1', '5', 3, False)
         np.testing.assert_equal(past, np.array([[3, 3], [2, 2], [1, 1]]))
 
@@ -481,8 +482,8 @@ class TestPredictHelper(unittest.TestCase):
                         {'token': '1', 'timestamp': -4e6}]
 
         # Testing we can get the exact amount of past seconds available
-        nusc = MockVOD(self.mock_annotations, mock_samples)
-        helper = PredictHelper(nusc)
+        vod_ = MockVOD(self.mock_annotations, mock_samples)
+        helper = PredictHelper(vod_)
         past = helper.get_past_for_agent('1', '5', 3, True)
         np.testing.assert_allclose(past, np.array([[1., -1.], [2., -2.], [3., -3.]]))
 
@@ -495,8 +496,8 @@ class TestPredictHelper(unittest.TestCase):
                         {'token': '1', 'timestamp': -5.5e6}]
 
         # Testing we do not include data after the past seconds
-        nusc = MockVOD(self.mock_annotations, mock_samples)
-        helper = PredictHelper(nusc)
+        vod_ = MockVOD(self.mock_annotations, mock_samples)
+        helper = PredictHelper(vod_)
         past = helper.get_past_for_agent('1', '5', 3, False)
         np.testing.assert_equal(past, np.array([[3, 3], [2, 2]]))
 
@@ -508,8 +509,8 @@ class TestPredictHelper(unittest.TestCase):
                         {'token': '2', 'timestamp': -3.2e6}]
 
         # Testing we get data if it is after future seconds but within buffer
-        nusc = MockVOD(self.mock_annotations, mock_samples)
-        helper = PredictHelper(nusc)
+        vod_ = MockVOD(self.mock_annotations, mock_samples)
+        helper = PredictHelper(vod_)
         past = helper.get_past_for_agent('1', '5', 3, False)
         np.testing.assert_equal(past, np.array([[3, 3], [2, 2]]))
 
@@ -518,8 +519,8 @@ class TestPredictHelper(unittest.TestCase):
                         {'token': '4', 'timestamp': -3.5e6}]
 
         # Testing we get nothing if the first sample annotation is past our threshold
-        nusc = MockVOD(self.mock_annotations, mock_samples)
-        helper = PredictHelper(nusc)
+        vod_ = MockVOD(self.mock_annotations, mock_samples)
+        helper = PredictHelper(vod_)
         past = helper.get_past_for_agent('1', '5', 3, False)
         np.testing.assert_equal(past, np.array([]))
 
@@ -527,8 +528,8 @@ class TestPredictHelper(unittest.TestCase):
         mock_samples = [{'token': '1', 'timestamp': 0}]
 
         # Testing we get nothing if we're at the last annotation
-        nusc = MockVOD(self.mock_annotations, mock_samples)
-        helper = PredictHelper(nusc)
+        vod_ = MockVOD(self.mock_annotations, mock_samples)
+        helper = PredictHelper(vod_)
         past = helper.get_past_for_agent('1', '1', 3, False)
         np.testing.assert_equal(past, np.array([]))
 
@@ -540,8 +541,8 @@ class TestPredictHelper(unittest.TestCase):
                         {'token': '4', 'timestamp': 3e6},
                         {'token': '5', 'timestamp': 4e6}]
 
-        nusc = MockVOD(self.multiagent_mock_annotations, mock_samples)
-        helper = PredictHelper(nusc)
+        vod_ = MockVOD(self.multiagent_mock_annotations, mock_samples)
+        helper = PredictHelper(vod_)
         future = helper.get_future_for_sample("1", 3, False)
 
         answer = {'1': np.array([[1, 1], [2, 2], [3, 3]]),
@@ -566,8 +567,8 @@ class TestPredictHelper(unittest.TestCase):
                         {'token': '2', 'timestamp': -3e6},
                         {'token': '1', 'timestamp': -4e6}]
 
-        nusc = MockVOD(self.multiagent_mock_annotations, mock_samples)
-        helper = PredictHelper(nusc)
+        vod_ = MockVOD(self.multiagent_mock_annotations, mock_samples)
+        helper = PredictHelper(vod_)
         past = helper.get_past_for_sample('5', 3, True)
 
         answer = {'1': np.array([[-1, -1], [-2, -2], [-3, -3]]),
@@ -581,30 +582,30 @@ class TestPredictHelper(unittest.TestCase):
         mock_samples = [{'token': '1', 'timestamp': 0},
                         {'token': '2', 'timestamp': 0.5e6}]
 
-        nusc = MockVOD(self.mock_annotations, mock_samples)
-        helper = PredictHelper(nusc)
+        vod_ = MockVOD(self.mock_annotations, mock_samples)
+        helper = PredictHelper(vod_)
 
         self.assertEqual(helper.get_velocity_for_agent("1", "2"), np.sqrt(8))
 
     def test_velocity_return_nan_one_obs(self):
 
         mock_samples = [{'token': '1', 'timestamp': 0}]
-        nusc = MockVOD(self.mock_annotations, mock_samples)
-        helper = PredictHelper(nusc)
+        vod_ = MockVOD(self.mock_annotations, mock_samples)
+        helper = PredictHelper(vod_)
 
         self.assertTrue(np.isnan(helper.get_velocity_for_agent('1', '1')))
 
     def test_velocity_return_nan_big_diff(self):
         mock_samples = [{'token': '1', 'timestamp': 0},
                         {'token': '2', 'timestamp': 2.5e6}]
-        nusc = MockVOD(self.mock_annotations, mock_samples)
-        helper = PredictHelper(nusc)
+        vod_ = MockVOD(self.mock_annotations, mock_samples)
+        helper = PredictHelper(vod_)
         self.assertTrue(np.isnan(helper.get_velocity_for_agent('1', '2')))
 
     def test_heading_change_rate(self):
         mock_samples = [{'token': '1', 'timestamp': 0}, {'token': '2', 'timestamp': 0.5e6}]
-        nusc = MockVOD(self.mock_annotations, mock_samples)
-        helper = PredictHelper(nusc)
+        vod_ = MockVOD(self.mock_annotations, mock_samples)
+        helper = PredictHelper(vod_)
         self.assertEqual(helper.get_heading_change_rate_for_agent('1', '2'), np.pi)
 
     def test_heading_change_rate_near_pi(self):
@@ -612,16 +613,16 @@ class TestPredictHelper(unittest.TestCase):
         mock_annotations = copy.copy(self.mock_annotations)
         mock_annotations[0]['rotation'] = [np.cos((np.pi - 0.05)/2), 0, 0, np.sin((np.pi - 0.05) / 2)]
         mock_annotations[1]['rotation'] = [np.cos((-np.pi + 0.05)/2), 0, 0, np.sin((-np.pi + 0.05) / 2)]
-        nusc = MockVOD(mock_annotations, mock_samples)
-        helper = PredictHelper(nusc)
+        vod_ = MockVOD(mock_annotations, mock_samples)
+        helper = PredictHelper(vod_)
         self.assertAlmostEqual(helper.get_heading_change_rate_for_agent('1', '2'), 0.2)
 
     def test_acceleration_zero(self):
         mock_samples = [{'token': '1', 'timestamp': 0},
                         {'token': '2', 'timestamp': 0.5e6},
                         {'token': '3', 'timestamp': 1e6}]
-        nusc = MockVOD(self.mock_annotations, mock_samples)
-        helper = PredictHelper(nusc)
+        vod_ = MockVOD(self.mock_annotations, mock_samples)
+        helper = PredictHelper(vod_)
         self.assertEqual(helper.get_acceleration_for_agent('1', '3'), 0)
 
     def test_acceleration_nonzero(self):
@@ -630,22 +631,22 @@ class TestPredictHelper(unittest.TestCase):
                         {'token': '3', 'timestamp': 1e6}]
         mock_annotations = copy.copy(self.mock_annotations)
         mock_annotations[2]['translation'] = [3, 3, 3]
-        nusc = MockVOD(mock_annotations, mock_samples)
-        helper = PredictHelper(nusc)
+        vod_ = MockVOD(mock_annotations, mock_samples)
+        helper = PredictHelper(vod_)
         self.assertAlmostEqual(helper.get_acceleration_for_agent('1', '3'), 2 * (np.sqrt(32) - np.sqrt(8)))
 
     def test_acceleration_nan_not_enough_data(self):
         mock_samples = [{'token': '1', 'timestamp': 0},
                         {'token': '2', 'timestamp': 0.5e6},
                         {'token': '3', 'timestamp': 1e6}]
-        nusc = MockVOD(self.mock_annotations, mock_samples)
-        helper = PredictHelper(nusc)
+        vod_ = MockVOD(self.mock_annotations, mock_samples)
+        helper = PredictHelper(vod_)
         self.assertTrue(np.isnan(helper.get_acceleration_for_agent('1', '2')))
 
     def test_get_no_data_when_seconds_0(self):
         mock_samples = [{'token': '1', 'timestamp': 0, 'anns': ['1']}]
-        nusc = MockVOD(self.mock_annotations, mock_samples)
-        helper = PredictHelper(nusc)
+        vod_ = MockVOD(self.mock_annotations, mock_samples)
+        helper = PredictHelper(vod_)
 
         np.testing.assert_equal(helper.get_future_for_agent('1', '1', 0, False), np.array([]))
         np.testing.assert_equal(helper.get_past_for_agent('1', '1', 0, False), np.array([]))
@@ -654,8 +655,8 @@ class TestPredictHelper(unittest.TestCase):
 
     def test_raises_error_when_seconds_negative(self):
         mock_samples = [{'token': '1', 'timestamp': 0, 'anns': ['1', '1b']}]
-        nusc = MockVOD(self.mock_annotations, mock_samples)
-        helper = PredictHelper(nusc)
+        vod_ = MockVOD(self.mock_annotations, mock_samples)
+        helper = PredictHelper(vod_)
         with self.assertRaises(ValueError):
             helper.get_future_for_agent('1', '1', -1, False)
 

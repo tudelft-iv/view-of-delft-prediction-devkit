@@ -1,5 +1,5 @@
 # Advanced Installation
-We provide step-by-step instructions to install our devkit. These instructions apply to both VOD and nuImages.
+We provide step-by-step instructions to install our devkit. These instructions are based on the [nuscenes-devkit installation instructions](https://github.com/nutonomy/nuscenes-devkit/blob/master/docs/installation.md).
 - [Download](#download)
 - [Install Python](#install-python)
 - [Setup a Conda environment](#setup-a-conda-environment)
@@ -14,10 +14,8 @@ We provide step-by-step instructions to install our devkit. These instructions a
 
 Download the devkit to your home directory using:
 ```
-cd && git clone https://github.com/nutonomy/vod-devkit.git
+cd && git clone https://github.com/tudelft-iv/vod-devkit.git
 ```
-*Note:* The pip package does not support the prediction or tracking code.
-For these, you will need to download the source code and [manually install the requirements](#install-required-packages).
 
 ## Install Python
 
@@ -40,16 +38,16 @@ An alternative to Conda is to use virtualenvwrapper, as described [below](#setup
 See the [official Miniconda page](https://conda.io/en/latest/miniconda.html).
 
 #### Setup a Conda environment
-We create a new Conda environment named `vod`. We will use this environment for both VOD and nuImages.
+We create a new Conda environment named `vod-devkit`. 
 ```
-conda create --name vod python=3.7
+conda create --name vod-devkit python=3.7
 ```
 
 #### Activate the environment
-If you are inside the virtual environment, your shell prompt should look like: `(vod) user@computer:~$`
+If you are inside the virtual environment, your shell prompt should look like: `(vod-devkit) user@computer:~$`
 If that is not the case, you can enable the virtual environment using:
 ```
-conda activate vod 
+conda activate vod-devkit 
 ```
 To deactivate the virtual environment, use:
 ```
@@ -76,19 +74,19 @@ Replace `[VIRTUAL_ENV_LOCATION]` with either `/usr/local/bin/virtualenvwrapper.s
 After editing it, reload the shell startup file by running e.g. `source ~/.bashrc`.
 
 Note: If you are facing dependency issues with the PIP package, you can also install the devkit as a Conda package.
-For more details, see [this issue](https://github.com/nutonomy/vod-devkit/issues/155). 
+For more details, see [this nuscenes-devkit issue](https://github.com/nutonomy/nuscenes-devkit/issues/155). 
 
 #### Create the virtual environment
-We create a new virtual environment named `vod`.
+We create a new virtual environment named `vod-devkit`.
 ```
-mkvirtualenv vod --python=python3.7 
+mkvirtualenv vod-devkit --python=python3.7 
 ```
 
 #### Activate the virtual environment
-If you are inside the virtual environment, your shell prompt should look like: `(vod) user@computer:~$`
+If you are inside the virtual environment, your shell prompt should look like: `(vod-devkit) user@computer:~$`
 If that is not the case, you can enable the virtual environment using:
 ```
-workon vod
+workon vod-devkit
 ```
 To deactivate the virtual environment, use:
 ```
@@ -107,22 +105,16 @@ To install the required packages, run the following command in your favourite vi
 ```
 pip install -r setup/requirements.txt
 ```
-**Note:** The requirements file is internally divided into base requirements (`base`) and requirements specific to certain products or challenges (`nuimages`, `prediction` and `tracking`).
-From December 2020 onwards we are excluding the `prediction` and `tracking` requirements by default to decrease the number of packages that are installed and avoid incompatibility with other pip packages.
-If you want to install these requirements nevertheless, please run the following for `prediction` (and analog for `tracking`):
+**Note:** Unlike the nuscenes-devkit, all of the requirements (base, prediction, tracking) are installed by default. Comment out the appropriate lines in the `setup/requirements.txt` file to only install a subset of the requirements, or install only the specific requirements as follows (e.g. for prediction):
 ```
 pip install -r setup/requirements/requirements_prediction.txt
 ``` 
 
 ## Setup environment variable
-Finally, if you want to run the unit tests you need to point the devkit to the `vod` folder on your disk.
-Set the NUSCENES environment variable to point to your data folder:
+Finally, if you want to run the unit tests you need to point the devkit to the `vod` dataset folder on your disk.
+Set the VOD environment variable to point to your data folder:
 ```
-export NUSCENES="/data/sets/vod"
-```
-or for NUIMAGES:
-```
-export NUIMAGES="/data/sets/nuimages"
+export VOD="/data/sets/vod"
 ```
 
 ## Setup Matplotlib backend
@@ -139,6 +131,6 @@ backend: TKAgg
 
 ## Verify install
 To verify your environment run `python -m unittest` in the `python-sdk` folder.
-You can also run `assert_download.py` in the `python-sdk/vod/tests` and `python-sdk/nuimages/tests` folders to verify that all files are in the right place.
+You can also run `assert_download.py` in the `python-sdk/vod/tests` folders to verify that all files are in the right place.
 
-That's it you should be good to go!
+That's it, you should be good to go!
