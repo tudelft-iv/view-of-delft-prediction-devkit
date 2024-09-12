@@ -7,7 +7,7 @@ Every row can be identified by its unique primary key `token`.
 Foreign keys such as `sample_token` may be used to link to the `token` of the table `sample`.
 Please refer to the [tutorial](https://www.vod.org/nuimages#tutorial) for an introduction to the most important database tables.
 
-![](https://www.vod.org/public/images/vod-schema.svg)
+![](images/samples_schema.svg)
 
 attribute
 ---------
