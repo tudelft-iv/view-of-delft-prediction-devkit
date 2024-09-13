@@ -5,13 +5,14 @@ import setuptools
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-with open("requirements.txt") as f:
+with open("setup/requirements.txt") as f:
     req_paths = f.read().splitlines()
 requirements = []
 for req_path in req_paths:
     if req_path.startswith("#"):
         continue
     req_path = req_path.replace("-r ", "")
+    req_path = os.path.join("setup", req_path)
     with open(req_path) as f:
         requirements += f.read().splitlines()
 
@@ -40,8 +41,8 @@ packages = [
 ]
 
 setuptools.setup(
-    name="vod",
-    version="1.0.0",
+    name="vod-devkit",
+    version="1.0.1",
     author="Hidde Boekema",
     author_email="h.j.boekema@tudelft.nl",
     description="The official devkit of the View-of-Delft Prediction dataset.",
