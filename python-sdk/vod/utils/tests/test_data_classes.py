@@ -14,18 +14,18 @@ class TestDataClasses(unittest.TestCase):
         """
         Loads up lidar and radar pointclouds.
         """
-        assert 'NUSCENES' in os.environ, 'Set NUSCENES env. variable to enable tests.'
-        dataroot = os.environ['NUSCENES']
-        nusc = VOD(version='v1.0-mini', dataroot=dataroot, verbose=False)
-        sample_rec = nusc.sample[0]
-        lidar_name = nusc.get('sample_data', sample_rec['data']['LIDAR_TOP'])['filename']
-        radar_name = nusc.get('sample_data', sample_rec['data']['RADAR_FRONT'])['filename']
+        assert 'VOD' in os.environ, 'Set VOD env. variable to enable tests.'
+        dataroot = os.environ['VOD']
+        vod_ = VOD(version='v1.0-mini', dataroot=dataroot, verbose=False)
+        sample_rec = vod_.sample[0]
+        lidar_name = vod_.get('sample_data', sample_rec['data']['LIDAR_TOP'])['filename']
+        radar_name = vod_.get('sample_data', sample_rec['data']['RADAR_FRONT'])['filename']
         lidar_path = os.path.join(dataroot, lidar_name)
         radar_path = os.path.join(dataroot, radar_name)
         pc1 = LidarPointCloud.from_file(lidar_path)
         pc2 = RadarPointCloud.from_file(radar_path)
-        pc3, _ = LidarPointCloud.from_file_multisweep(nusc, sample_rec, 'LIDAR_TOP', 'LIDAR_TOP', nsweeps=2)
-        pc4, _ = RadarPointCloud.from_file_multisweep(nusc, sample_rec, 'RADAR_FRONT', 'RADAR_FRONT', nsweeps=2)
+        pc3, _ = LidarPointCloud.from_file_multisweep(vod_, sample_rec, 'LIDAR_TOP', 'LIDAR_TOP', nsweeps=2)
+        pc4, _ = RadarPointCloud.from_file_multisweep(vod_, sample_rec, 'RADAR_FRONT', 'RADAR_FRONT', nsweeps=2)
 
         # Check for valid dimensions.
         assert pc1.points.shape[0] == pc3.points.shape[0] == 4, 'Error: Invalid dimension for lidar pointcloud!'

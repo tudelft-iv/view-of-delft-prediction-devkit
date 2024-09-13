@@ -130,7 +130,8 @@ backend: TKAgg
 ```
 
 ## Verify install
-To verify your environment run `python -m unittest` in the `python-sdk` folder.
+To verify your environment run `python -m unittest` in the `python-sdk` folder (TODO make test work; this command will result in failed tests as-is).
+
 You can also run `assert_download.py` in the `python-sdk/vod/tests` folders to verify that all files are in the right place.
 
 That's it, you should be good to go!

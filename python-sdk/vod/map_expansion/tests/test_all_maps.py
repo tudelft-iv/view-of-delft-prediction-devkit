@@ -22,7 +22,7 @@ class TestAllMaps(unittest.TestCase):
         self.nusc_maps = dict()
         for map_name in locations:
             # Load map.
-            nusc_map = VODMap(map_name=map_name, dataroot=os.environ['NUSCENES'])
+            nusc_map = VODMap(map_name=map_name, dataroot=os.environ['VOD'])
 
             # Render for debugging.
             if self.render:
@@ -66,7 +66,7 @@ class TestAllMaps(unittest.TestCase):
 
     def test_egoposes_on_map(self):
         """ Test that all ego poses land on """
-        nusc = VOD(version=self.version, dataroot=os.environ['NUSCENES'], verbose=False)
+        nusc = VOD(version=self.version, dataroot=os.environ['VOD'], verbose=False)
         whitelist = ['scene-0499', 'scene-0501', 'scene-0502', 'scene-0515', 'scene-0517']
 
         invalid_scenes = []

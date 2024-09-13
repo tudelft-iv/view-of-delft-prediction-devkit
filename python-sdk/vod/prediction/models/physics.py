@@ -143,7 +143,7 @@ class Baseline(abc.ABC):
         assert sec_from_now % 0.5 == 0, f"Parameter sec from now must be divisible by 0.5. Received {sec_from_now}."
         self.helper = helper
         self.sec_from_now = sec_from_now
-        self.sampled_at = 10  # 10 Hz between annotations.
+        self.sampled_at = 10  # 10 Hz annotations.
 
     @abc.abstractmethod
     def __call__(self, token: str) -> Prediction:

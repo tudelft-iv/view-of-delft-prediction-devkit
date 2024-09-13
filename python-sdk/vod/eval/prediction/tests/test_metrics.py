@@ -277,7 +277,7 @@ class TestOffRoadRate(unittest.TestCase):
     def _do_test(self, map_name, predictions, answer):
         with patch.object(PredictHelper, 'get_map_name_from_sample_token') as get_map_name:
             get_map_name.return_value = map_name
-            nusc = VOD('v1.0-mini', dataroot=os.environ['NUSCENES'], verbose=False)
+            nusc = VOD('v1.0-mini', dataroot=os.environ['VOD'], verbose=False)
             helper = PredictHelper(nusc)
 
             off_road_rate = metrics.OffRoadRate(helper, [metrics.RowMean()])

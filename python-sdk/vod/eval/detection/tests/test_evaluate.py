@@ -20,7 +20,7 @@ from vod.utils.splits import create_splits_scenes
 
 
 class TestMain(unittest.TestCase):
-    res_mockup = 'nusc_eval.json'
+    res_mockup = 'vod_eval.json'
     res_eval_folder = 'tmp'
 
     def tearDown(self):
@@ -30,7 +30,7 @@ class TestMain(unittest.TestCase):
             shutil.rmtree(self.res_eval_folder)
 
     @staticmethod
-    def _mock_submission(nusc: VOD, split: str) -> Dict[str, dict]:
+    def _mock_submission(vod_: VOD, split: str) -> Dict[str, dict]:
         """
         Creates "reasonable" submission (results and metadata) by looping through the mini-val set, adding 1 GT
         prediction per sample. Predictions will be permuted randomly along all axes.
@@ -70,14 +70,14 @@ class TestMain(unittest.TestCase):
         mock_results = {}
         splits = create_splits_scenes()
         val_samples = []
-        for sample in nusc.sample:
-            if nusc.get('scene', sample['scene_token'])['name'] in splits[split]:
+        for sample in vod_.sample:
+            if vod_.get('scene', sample['scene_token'])['name'] in splits[split]:
                 val_samples.append(sample)
 
         for sample in tqdm(val_samples, leave=False):
             sample_res = []
             for ann_token in sample['anns']:
-                ann = nusc.get('sample_annotation', ann_token)
+                ann = vod_.get('sample_annotation', ann_token)
                 detection_name = random_class(ann['category_name'])
                 sample_res.append(
                     {
@@ -85,7 +85,7 @@ class TestMain(unittest.TestCase):
                         'translation': list(np.array(ann['translation']) + 5 * (np.random.rand(3) - 0.5)),
                         'size': list(np.array(ann['size']) * 2 * (np.random.rand(3) + 0.5)),
                         'rotation': list(np.array(ann['rotation']) + ((np.random.rand(4) - 0.5) * .1)),
-                        'velocity': list(nusc.box_velocity(ann_token)[:2] * (np.random.rand(3)[:2] + 0.5)),
+                        'velocity': list(vod_.box_velocity(ann_token)[:2] * (np.random.rand(3)[:2] + 0.5)),
                         'detection_name': detection_name,
                         'detection_score': random.random(),
                         'attribute_name': random_attr(detection_name)
@@ -105,17 +105,17 @@ class TestMain(unittest.TestCase):
         """
         random.seed(42)
         np.random.seed(42)
-        assert 'NUSCENES' in os.environ, 'Set NUSCENES env. variable to enable tests.'
+        assert 'VOD' in os.environ, 'Set VOD env. variable to enable tests.'
 
-        nusc = VOD(version='v1.0-mini', dataroot=os.environ['NUSCENES'], verbose=False)
+        vod_ = VOD(version='v1.0-mini', dataroot=os.environ['VOD'], verbose=False)
 
         with open(self.res_mockup, 'w') as f:
-            json.dump(self._mock_submission(nusc, 'mini_val'), f, indent=2)
+            json.dump(self._mock_submission(vod_, 'mini_val'), f, indent=2)
 
         cfg = config_factory('detection_cvpr_2019')
-        nusc_eval = DetectionEval(nusc, cfg, self.res_mockup, eval_set='mini_val', output_dir=self.res_eval_folder,
+        vod__eval = DetectionEval(vod_, cfg, self.res_mockup, eval_set='mini_val', output_dir=self.res_eval_folder,
                                   verbose=False)
-        metrics, md_list = nusc_eval.evaluate()
+        metrics, md_list = vod__eval.evaluate()
 
         # 1. Score = 0.22082865720221012. Measured on the branch "release_v0.2" on March 7 2019.
         # 2. Score = 0.2199307290627096. Changed to measure center distance from the ego-vehicle.

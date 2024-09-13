@@ -31,7 +31,7 @@ class TestPhysicsBaselines(unittest.TestCase):
         # x, y, vx, vy, ax, ay, velocity, yaw_rate, acceleration, yaw
         mock_kinematics.return_value = 0, 0, 1, 0, 2, 0, 1, 0, 2, 0
 
-        cv_model = ConstantVelocityHeading(6, mock_helper)
+        cv_model = ConstantVelocityHeading(3, mock_helper)
         prediction = cv_model('foo-instance_bar-sample')
 
         answer = np.array([[[0.5, 0], [1, 0], [1.5, 0], [2.0, 0], [2.5, 0], [3.0, 0],
@@ -53,7 +53,7 @@ class TestPhysicsBaselines(unittest.TestCase):
         # x, y, vx, vy, ax, ay, velocity, yaw_rate, acceleration, yaw
         mock_kinematics.return_value = 0, 0, 0, 2, 0, 2, 2, 0.05, 2, 0
 
-        oracle = PhysicsOracle(6, mock_helper)
+        oracle = PhysicsOracle(3, mock_helper)
         prediction = oracle('foo-instance_bar-sample')
 
         answer = np.array([[[0., 1.25], [0., 3.], [0., 5.25], [0., 8.], [0., 11.25], [0., 15.],
@@ -75,6 +75,6 @@ class TestPhysicsBaselines(unittest.TestCase):
         # x, y, vx, vy, ax, ay, velocity, yaw_rate, acceleration, yaw
         mock_kinematics.return_value = 0, 0, 0, 2, 0, 2, 2, 0.05, 2, 0
 
-        oracle = PhysicsOracle(6, mock_helper)
+        oracle = PhysicsOracle(3, mock_helper)
         with self.assertRaises(AssertionError):
             oracle('foo-instance_bar-sample')
