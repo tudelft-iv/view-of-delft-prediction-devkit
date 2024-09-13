@@ -37,7 +37,7 @@ For an advanced installation, see [installation](docs/installation.md) for detai
 ## VoD-P
 
 ### VoD-P setup
-To download VoD-P, follow the instruction at the main [View-of-Delft dataset page](https://github.com/tudelft-iv/view-of-delft-dataset/tree/main#Access).
+To download VoD-P, follow the instructions at the main [View-of-Delft dataset page](https://github.com/tudelft-iv/view-of-delft-dataset/tree/main#Access).
 Download the zipfile when you receive the access link. 
 Unzip the file and you should have the following folder structure:
 ```
@@ -55,7 +55,9 @@ Please follow these steps to make yourself familiar with the VoD dataset:
 - Download the dataset.
 - Get the [vod-devkit code](https://github.com/tudelft-iv/vod-devkit/tree/main).
 - Read the [tutorials](https://github.com/tudelft-iv/vod-devkit/tree/main/python-sdk/tutorials) or run one yourself using:
-`jupyter notebook $HOME/vod-devkit/python-sdk/tutorials/vod_tutorial.ipynb`
+```
+jupyter notebook $HOME/vod-devkit/python-sdk/tutorials/vod_tutorial.ipynb
+```
 - Read the [VoD-P paper](https://ieeexplore.ieee.org/document/10493110) for a closer look at the dataset.
 - See the [FAQs](https://github.com/tudelft-iv/vod-devkit/blob/main/docs/faqs.md).
 
