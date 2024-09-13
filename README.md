@@ -1,7 +1,7 @@
 # The View-of-Delft Prediction devkit
 Welcome to the View-of-Delft Prediction (VoD-P) development kit. This repository contains the code and documentation associated with the VoD-P dataset.
 
-![](https://www.vod.org/public/images/road.jpg)
+![](TODO)
 
 ## Overview
 - [Introduction](#introduction)
@@ -23,13 +23,15 @@ The dataset is available in a format based on the [nuScenes dataset](https://www
 [202-09-11] Released the View-of-Delft Prediction dataset and development kit.
 
 ## Devkit setup
-The devkit is tested for Python >=3.6.
+The devkit is tested for Python 3.6 and 3.7.
 To install Python, please check [here](https://github.com/nutonomy/vod-devkit/blob/master/docs/installation.md#install-python).
 
-TODO: Our devkit is available and can be installed via [pip](https://pip.pypa.io/en/stable/installing/) :
+Our devkit is available and can be installed via [pip](https://pip.pypa.io/en/stable/installing/) :
 ```
 pip install vod-devkit
 ```
+
+For an advanced installation, see [installation](docs/installation.md) for detailed instructions.
 
 
 ## VoD-P
@@ -46,6 +48,17 @@ Unzip the file and you should have the following folder structure:
 
 
 ### Getting started with VoD-P
+
+Please follow these steps to make yourself familiar with the VoD dataset:
+- Read the [main dataset page](https://tudelft-iv.github.io/view-of-delft-dataset/).
+- [Request access](https://docs.google.com/forms/d/e/1FAIpQLSdKvkuKbzmJTn8raJBAWgekAJCpaQLS_ED63sUS89Ezo61RCQ/viewform) to the dataset.
+- Download the dataset.
+- Get the [vod-devkit code](https://github.com/tudelft-iv/vod-devkit/tree/main).
+- Read the [tutorials](https://github.com/tudelft-iv/vod-devkit/tree/main/python-sdk/tutorials) or run one yourself using:
+`jupyter notebook $HOME/vod-devkit/python-sdk/tutorials/vod_tutorial.ipynb`
+- Read the [VoD-P paper](https://ieeexplore.ieee.org/document/10493110) for a closer look at the dataset.
+- See the [FAQs](https://github.com/tudelft-iv/vod-devkit/blob/main/docs/faqs.md).
+
 
 
 ## Known issues
@@ -79,7 +92,4 @@ The [View-of-Delft (VoD) dataset](https://ieeexplore.ieee.org/document/9699098) 
   pages={4961-4968},
   doi={10.1109/LRA.2022.3147324}}
 ```
-
-
-
 
