@@ -8,8 +8,6 @@ from typing import List
 
 from vod.utils.splits import create_splits_scenes
 
-NUM_VAL = 4
-
 
 def get_prediction_challenge_split(
     split: str, dataroot: str = "/data/sets/vod"
@@ -37,14 +35,8 @@ def get_prediction_challenge_split(
 
     path_to_file = os.path.join(dataroot, dirname, "prediction_scenes.json")
     prediction_scenes = json.load(open(path_to_file, "r"))
-    prediction_scenes = list(prediction_scenes.keys())
-
-    if split == "train":
-        scenes_for_split = prediction_scenes[:-NUM_VAL]
-    elif split == "val":
-        scenes_for_split = prediction_scenes[-NUM_VAL:]
-    # if split == "train_val":
-    #    scenes_for_split = prediction_scenes
+    scenes = create_splits_scenes()
+    scenes_for_split = scenes[split_name]
 
     token_list_for_scenes = map(
         lambda scene: prediction_scenes.get(scene, []), scenes_for_split

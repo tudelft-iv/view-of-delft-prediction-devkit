@@ -5,9 +5,18 @@ All annotations and meta data (including calibration, maps, vehicle coordinates 
 The database tables are listed below.
 Every row can be identified by its unique primary key `token`.
 Foreign keys such as `sample_token` may be used to link to the `token` of the table `sample`.
-Please refer to the [tutorial](https://www.vod.org/nuimages#tutorial) for an introduction to the most important database tables.
+Please refer to the [tutorial](/python-sdk/tutorials/vod_tutorial.ipynb) for an introduction to the most important database tables.
 
-![](https://www.vod.org/public/images/vod-schema.svg)
+![](media/samples_schema.svg)
+
+To properly view the schema figure above, use Github light mode or click on the figure.
+
+[2024-09-11] Not all of the tables are implemented at the time of this notice. The following are currently unavailable or partially complete:
+- `attribute`
+- `calibrated_sensor`
+- `sample_data`
+- `sensor`
+
 
 attribute
 ---------
@@ -78,16 +87,6 @@ instance {
 }
 ```
 
-lidarseg
----------
-Mapping between VOD-lidarseg annotations and sample_datas corresponding to the lidar pointcloud associated with a keyframe. 
-```
-lidarseg {
-   "token":                   <str> -- Unique record identifier.
-   "filename":                <str> -- The name of the .bin files containing the VOD-lidarseg labels. These are numpy arrays of uint8 stored in binary format using numpy.
-   "sample_data_token":       <str> -- Foreign key. Sample_data corresponding to the annotated lidar pointcloud with is_key_frame=True. 
-}
-```
 
 log
 ---------
@@ -196,16 +195,5 @@ sensor {
    "token":                   <str> -- Unique record identifier.
    "channel":                 <str> -- Sensor channel name.
    "modality":                <str> {camera, lidar, radar} -- Sensor modality. Supports category(ies) in brackets.
-}
-```
-
-visibility
----------
-The visibility of an instance is the fraction of annotation visible in all 6 images. Binned into 4 bins 0-40%, 40-60%, 60-80% and 80-100%.
-```
-visibility {
-   "token":                   <str> -- Unique record identifier.
-   "level":                   <str> -- Visibility level.
-   "description":             <str> -- Description of visibility level.
 }
 ```
