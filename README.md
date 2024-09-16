@@ -10,6 +10,7 @@ Welcome to the View-of-Delft Prediction (VoD-P) development kit. This repository
 - [VoD-P](#vod-p)
   - [VoD-P setup](#vod-p-setup)
   - [Getting started with VoD-P](#getting-started-with-vod-p)
+  - [Submitting to the VoD-P leaderboard](#submitting-to-the-vod-p-leaderboard)
 - [Known issues](#known-issues)
 - [Citation](#citation)
 
@@ -61,6 +62,12 @@ jupyter notebook $HOME/vod-devkit/python-sdk/tutorials/vod_tutorial.ipynb
 - Read the [VoD-P paper](https://ieeexplore.ieee.org/document/10493110) for a closer look at the dataset.
 - See the [FAQs](https://github.com/tudelft-iv/vod-devkit/blob/main/docs/faqs.md).
 
+
+### Submitting to the VoD-P leaderboard
+
+We will launch a challenge with a public leaderboard soon.
+
+In the meantime, you can evaluate your prediction model locally on the released test set.
 
 
 ## Known issues
