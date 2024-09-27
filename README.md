@@ -38,7 +38,7 @@ For an advanced installation, see [installation](docs/installation.md) for detai
 ## VoD-P
 
 ### VoD-P setup
-To download VoD-P, follow the instructions at the main [View-of-Delft dataset page](https://github.com/tudelft-iv/view-of-delft-dataset/tree/main#Access).
+To download VoD-P, follow the instructions at the main [View-of-Delft dataset page](https://intelligent-vehicles.org/datasets/view-of-delft/).
 Download the zipfile when you receive the access link. 
 Unzip the file and you should have the following folder structure:
 ```
@@ -89,16 +89,4 @@ Please use the following citation when referencing the [View-of-Delft (VoD-P) da
 
 ```
 
-The [View-of-Delft (VoD) dataset](https://ieeexplore.ieee.org/document/9699098) can be referenced using:
-```
-@ARTICLE{apalffy2022,
-  author={Palffy, Andras and Pool, Ewoud and Baratam, Srimannarayana and Kooij, Julian F. P. and Gavrila, Dariu M.},
-  journal={IEEE Robotics and Automation Letters}, 
-  title={Multi-Class Road User Detection With 3+1D Radar in the View-of-Delft Dataset}, 
-  year={2022},
-  volume={7},
-  number={2},
-  pages={4961-4968},
-  doi={10.1109/LRA.2022.3147324}}
-```
 
