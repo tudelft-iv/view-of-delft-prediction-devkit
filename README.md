@@ -15,13 +15,13 @@ Welcome to the View-of-Delft Prediction (VoD-P) development kit. This repository
 - [Citation](#citation)
 
 ## Introduction 
-The View-of-Delft Prediction dataset is an extension of the [View-of-Delft dataset](https://github.com/tudelft-iv/view-of-delft-dataset/tree/main). It contains the 3D object annotations of the original dataset and additionally provides accurate 6-DoF global localisation and semantic map data.
+The View-of-Delft Prediction dataset is an extension of the [View-of-Delft dataset](https://intelligent-vehicles.org/datasets/view-of-delft/). It contains the 3D object annotations of the original dataset and additionally provides accurate 6-DoF global localisation and semantic map data.
 
 The dataset is available in a format based on the [nuScenes dataset](https://www.nuscenes.org/), and hence this development kit is a modified version of the [nuScenes devkit](https://github.com/nutonomy/nuscenes-devkit).
 
 
 ## Changelog
-[202-09-11] Released the View-of-Delft Prediction dataset and development kit.
+[2024-09-11] Released the View-of-Delft Prediction dataset and development kit.
 
 ## Devkit setup
 The devkit is tested for Python 3.6 and 3.7.
@@ -51,7 +51,7 @@ Unzip the file and you should have the following folder structure:
 ### Getting started with VoD-P
 
 Please follow these steps to make yourself familiar with the VoD dataset:
-- Read the [main dataset page](https://tudelft-iv.github.io/view-of-delft-dataset/).
+- Read the [main dataset page](https://intelligent-vehicles.org/datasets/view-of-delft/).
 - [Request access](https://docs.google.com/forms/d/e/1FAIpQLSdKvkuKbzmJTn8raJBAWgekAJCpaQLS_ED63sUS89Ezo61RCQ/viewform) to the dataset.
 - Download the dataset.
 - Get the [vod-devkit code](https://github.com/tudelft-iv/vod-devkit/tree/main).
