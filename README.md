@@ -25,7 +25,7 @@ The dataset is available in a format based on the [nuScenes dataset](https://www
 
 ## Devkit setup
 The devkit is tested for Python 3.6 and 3.7.
-To install Python, please check [here](https://github.com/nutonomy/vod-devkit/blob/master/docs/installation.md#install-python).
+To install Python, please check [here](https://github.com/nutonomy/view-of-delft-prediction-devkit/blob/master/docs/installation.md#install-python).
 
 Our devkit is available and can be installed via [pip](https://pip.pypa.io/en/stable/installing/) :
 ```
@@ -54,13 +54,13 @@ Please follow these steps to make yourself familiar with the VoD dataset:
 - Read the [main dataset page](https://intelligent-vehicles.org/datasets/view-of-delft/).
 - [Request access](https://docs.google.com/forms/d/e/1FAIpQLSdKvkuKbzmJTn8raJBAWgekAJCpaQLS_ED63sUS89Ezo61RCQ/viewform) to the dataset.
 - Download the dataset.
-- Get the [vod-devkit code](https://github.com/tudelft-iv/vod-devkit/tree/main).
-- Read the [tutorials](https://github.com/tudelft-iv/vod-devkit/tree/main/python-sdk/tutorials) or run one yourself using:
+- Get the [view-of-delft-prediction-devkit code](https://github.com/tudelft-iv/vod-devkit/tree/main).
+- Read the [tutorials](https://github.com/tudelft-iv/view-of-delft-prediction-devkit/tree/main/python-sdk/tutorials) or run one yourself using:
 ```
-jupyter notebook $HOME/vod-devkit/python-sdk/tutorials/vod_tutorial.ipynb
+jupyter notebook $HOME/view-of-delft-prediction-devkit/python-sdk/tutorials/vod_tutorial.ipynb
 ```
-- Read the [VoD-P paper](https://ieeexplore.ieee.org/document/10493110) for a closer look at the dataset.
-- See the [FAQs](https://github.com/tudelft-iv/vod-devkit/blob/main/docs/faqs.md).
+- Read the View-of-Delft Prediction [paper](https://ieeexplore.ieee.org/document/10493110) for a closer look at the dataset.
+- See the [FAQs](https://github.com/tudelft-iv/view-of-delft-prediction-devkit/blob/main/docs/faqs.md).
 
 
 ### Submitting to the VoD-P leaderboard
@@ -74,7 +74,7 @@ In the meantime, you can evaluate your prediction model locally on the released 
 N/A
 
 ## Citation
-Please use the following citation when referencing the [View-of-Delft (VoD-P) dataset](https://ieeexplore.ieee.org/abstract/document/10493110):
+Please use the following citation when referencing the View-of-Delft (VoD-P) dataset:
 ```
 @article{boekema2024vodp,
   author={Boekema, Hidde J-H. and Martens, Bruno K.W. and Kooij, Julian F.P. and Gavrila, Dariu M.},
