@@ -20,7 +20,7 @@ prediction: Numpy array of shape [num_modes, n_timesteps, state_dim]
 probabilities: Numpy array of shape [num_modes]
 ```
 
-Each agent in VoD Prediction is indexed by an instance token and a sample token. As mentioned previously, num_modes can be up to 25. Since we are making 3 second predictions at 10 Hz, n_timesteps is 30. We are concerned only with x-y coordinates, so state_dim is 2. Note that the prediction must be reported in the global coordinate frame. Consult the baseline_model_inference script for an example on how to make a submission for two physics-based baseline models.
+Each agent in VoD Prediction is indexed by an instance token and a sample token. As mentioned previously, num_modes can be up to 25. Since we are making 3 second predictions at 10 Hz, n_timesteps is 30. We are concerned only with x-y coordinates, so state_dim is 2. Note that the prediction must be reported in the global coordinate frame. Consult the [baseline_model_inference](https://github.com/tudelft-iv/view-of-delft-prediction-devkit/blob/main/python-sdk/vod/eval/prediction/baseline_model_inference.py) script for an example on how to make a submission for two physics-based baseline models.
 
 ## Evaluation metrics
 
