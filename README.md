@@ -64,9 +64,9 @@ jupyter notebook $HOME/view-of-delft-prediction-devkit/python-sdk/tutorials/vod_
 
 ### Submitting to the VoD-P leaderboard
 
-We will launch a prediction challenge with a public leaderboard soon.
+The VoD-P benchmark leaderboard can be found at TODO.
 
-In the meantime, you can evaluate your prediction model locally on the released test set.
+See the [benchmark instructions](https://github.com/tudelft-iv/view-of-delft-prediction-devkit/blob/main/docs/benchmark_instructions.md) for the submission format and rules.
 
 
 ## Citation
