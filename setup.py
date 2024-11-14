@@ -42,14 +42,14 @@ packages = [
 
 setuptools.setup(
     name="vod-devkit",
-    version="1.0.1",
+    version="1.0.2",
     author="Hidde Boekema",
     author_email="h.j.boekema@tudelft.nl",
     description="The official devkit of the View-of-Delft Prediction dataset.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/tudelft-iv/vod-devkit",
-    python_requires=">=3.6",
+    python_requires=">=3.8",
     install_requires=requirements,
     packages=packages,
     package_dir={"": "python-sdk"},
