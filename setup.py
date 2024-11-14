@@ -42,7 +42,7 @@ packages = [
 
 setuptools.setup(
     name="vod-devkit",
-    version="1.0.2",
+    version="1.1.0",
     author="Hidde Boekema",
     author_email="h.j.boekema@tudelft.nl",
     description="The official devkit of the View-of-Delft Prediction dataset.",
@@ -56,7 +56,7 @@ setuptools.setup(
     package_data={"": ["*.json"]},
     include_package_data=True,
     classifiers=[
-        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.8",
         "Operating System :: OS Independent",
         "License :: Free for non-commercial use",
     ],
