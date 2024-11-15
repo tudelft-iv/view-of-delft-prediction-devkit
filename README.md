@@ -20,13 +20,14 @@ The dataset is available in a format based on the [nuScenes dataset](https://www
 
 
 ## Changelog
-[202-09-11] Released the View-of-Delft Prediction dataset and development kit.
+- [2024-11-15] Released a version of the development kit for Python 3.8.
+- [2024-09-11] Released the View-of-Delft Prediction dataset and development kit.
 
 ## Devkit setup
-The devkit is tested for Python 3.6 and 3.7.
-To install Python, please check [here](https://github.com/nutonomy/vod-devkit/blob/master/docs/installation.md#install-python).
+The devkit is tested for Python 3.8. For a version of the devkit that is compatible with Python 3.6 and 3.7, see the v1.0.1 [PyPI release](https://pypi.org/project/vod-devkit/1.0.1/) or [tag](https://github.com/tudelft-iv/view-of-delft-prediction-devkit/releases/tag/v1.0.1). 
+To install Python, please check [here](https://github.com/tudelft-iv/vod-devkit/blob/master/docs/installation.md#install-python).
 
-Our devkit is available and can be installed via [pip](https://pip.pypa.io/en/stable/installing/) :
+Our devkit is available and can be installed via [pip](https://pip.pypa.io/en/stable/installing/):
 ```
 pip install vod-devkit
 ```
@@ -54,9 +55,9 @@ Please follow these steps to make yourself familiar with the VoD dataset:
 - [Request access](https://docs.google.com/forms/d/e/1FAIpQLSdKvkuKbzmJTn8raJBAWgekAJCpaQLS_ED63sUS89Ezo61RCQ/viewform) to the dataset.
 - Download the dataset.
 - Get the [vod-devkit code](https://github.com/tudelft-iv/vod-devkit/tree/main).
-- Read the [tutorials](https://github.com/tudelft-iv/vod-devkit/tree/main/python-sdk/tutorials) or run one yourself using:
+- Read the [tutorials](https://github.com/tudelft-iv/vod-devkit/tree/main/tutorials) or run one yourself using:
 ```
-jupyter notebook $HOME/vod-devkit/python-sdk/tutorials/vod_tutorial.ipynb
+jupyter notebook $HOME/vod-devkit/tutorials/vod_tutorial.ipynb
 ```
 - Read the [VoD-P paper](https://ieeexplore.ieee.org/document/10493110) for a closer look at the dataset.
 - See the [FAQs](https://github.com/tudelft-iv/vod-devkit/blob/main/docs/faqs.md).
