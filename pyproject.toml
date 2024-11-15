@@ -1,0 +1,46 @@
+[tool.isort]
+profile = "black"
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3.8",
+    "License :: OSI Approved :: Apache Software License",
+]
+name = "vod-devkit"
+version = "1.1.0"
+authors = [{ name = "Hidde Boekema", email = "h.j.boekema@tudelft.nl" }]
+description = "The official devkit of the View-of-Delft Prediction dataset."
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "cachetools",
+    "descartes",
+    "fire",
+    "matplotlib<3.6.0",
+    "numpy>=1.22.0",
+    "opencv-python>=4.5.4.58",
+    "Pillow>6.2.1",
+    "pyquaternion>=0.9.5",
+    "scikit-learn",
+    "scipy",
+    "Shapely>=2.0.0",
+    "tqdm",
+    "notebook"
+
+]
+
+[project.optional-dependencies]
+dev = ["black", "isort", "pytest", "pytest-xdist", "twine", "build"]
+prediction = ["torch>=1.3.1", "torchvision>=0.4.2"]
+tracking = ["motmetrics<=1.1.3", "pandas>=0.24"]
+
+[project.urls]
+"Homepage" = "https://intelligent-vehicles.org/datasets/view-of-delft/"
+"Code" = "https://github.com/tudelft-iv/view-of-delft-prediction-devkit"
+"Bug Tracker" = "https://github.com/tudelft-iv/view-of-delft-prediction-devkit/issues" 

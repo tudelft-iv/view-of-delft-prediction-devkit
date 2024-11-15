@@ -402,13 +402,18 @@ class AgentBoxesWithFadedHistory(AgentRepresentation):
             get_color=self.color_mapping,
         )
 
-        # get smoothed orientation to reduce 'jumps' in visualisation
-        center_agent_yaw = quaternion_yaw(
-            Quaternion(center_agent_annotation["rotation"])
-        )
-        # rotation = smooth_rotation(self.helper, instance_token, sample_token)
-        # print("agent", Quaternion(rotation).axis, Quaternion(rotation).angle)
-        # center_agent_yaw = quaternion_yaw(Quaternion(rotation))
+        # smooth_orientation = True
+        smooth_orientation = False  # default
+        if smooth_orientation:
+            # get smoothed orientation to reduce 'jumps' in visualisation
+            rotation = smooth_rotation(self.helper, instance_token, sample_token)
+            # print("agent", Quaternion(rotation).axis, Quaternion(rotation).angle)
+            center_agent_yaw = quaternion_yaw(Quaternion(rotation))
+        else:
+            center_agent_yaw = quaternion_yaw(
+                Quaternion(center_agent_annotation["rotation"])
+            )
+
         rotation_mat = get_rotation_matrix(base_image.shape, center_agent_yaw)
 
         rotated_image = cv2.warpAffine(
@@ -515,13 +520,18 @@ class AgentBoxesWithPast(AgentRepresentation):
             get_color=self.color_mapping,
         )
 
-        # get smoothed orientation to reduce 'jumps' in visualisation
-        center_agent_yaw = quaternion_yaw(
-            Quaternion(center_agent_annotation["rotation"])
-        )
-        # rotation = smooth_rotation(self.helper, instance_token, sample_token)
-        #        print("agent", Quaternion(rotation).axis, Quaternion(rotation).degrees)
-        # center_agent_yaw = quaternion_yaw(Quaternion(rotation))
+        # smooth_orientation = True
+        smooth_orientation = False  # default
+        if smooth_orientation:
+            # get smoothed orientation to reduce 'jumps' in visualisation
+            rotation = smooth_rotation(self.helper, instance_token, sample_token)
+            # print("agent", Quaternion(rotation).axis, Quaternion(rotation).angle)
+            center_agent_yaw = quaternion_yaw(Quaternion(rotation))
+        else:
+            center_agent_yaw = quaternion_yaw(
+                Quaternion(center_agent_annotation["rotation"])
+            )
+
         rotation_mat = get_rotation_matrix(base_image.shape, center_agent_yaw)
 
         rotated_image = cv2.warpAffine(
