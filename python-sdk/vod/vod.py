@@ -145,12 +145,12 @@ class VOD:
                 "index" in lidarseg_category.keys()
             ), "Please use the category.json that comes with VOD-lidarseg, and not the old category.json."
 
-            self.lidarseg_idx2name_mapping[
-                lidarseg_category["index"]
-            ] = lidarseg_category["name"]
-            self.lidarseg_name2idx_mapping[
+            self.lidarseg_idx2name_mapping[lidarseg_category["index"]] = (
                 lidarseg_category["name"]
-            ] = lidarseg_category["index"]
+            )
+            self.lidarseg_name2idx_mapping[lidarseg_category["name"]] = (
+                lidarseg_category["index"]
+            )
 
     def __make_reverse_index__(self, verbose: bool) -> None:
         """
@@ -193,6 +193,7 @@ class VOD:
             if record["is_key_frame"]:
                 sample_record = self.get("sample", record["sample_token"])
                 sample_record["data"][record["channel"]] = record["token"]
+                sample_record["sample_data_token"] = record["token"]
 
         for ann_record in self.sample_annotation:
             sample_record = self.get("sample", ann_record["sample_token"])
@@ -851,7 +852,7 @@ class VODExplorer:
             intensities = (intensities - np.min(intensities)) / (
                 np.max(intensities) - np.min(intensities)
             )
-            intensities = intensities ** 0.1
+            intensities = intensities**0.1
             intensities = np.maximum(0, intensities - 0.5)
             coloring = intensities
         elif show_lidarseg or show_panoptic:
@@ -1972,9 +1973,9 @@ class VODExplorer:
                         :,
                     ] = im
 
-                    prev_recs[
-                        channel
-                    ] = sd_rec  # Store here so we don't render the same image twice.
+                    prev_recs[channel] = (
+                        sd_rec  # Store here so we don't render the same image twice.
+                    )
 
             # Show updated canvas.
             cv2.imshow(window_name, canvas)
