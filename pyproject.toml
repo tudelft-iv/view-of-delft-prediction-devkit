@@ -30,7 +30,9 @@ dependencies = [
     "scikit-learn",
     "scipy",
     "Shapely>=2.0.0",
-    "tqdm"
+    "tqdm",
+    "notebook"
+
 ]
 
 [project.optional-dependencies]
