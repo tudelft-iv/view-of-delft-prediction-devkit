@@ -121,7 +121,7 @@ def create_splits_scenes(verbose: bool = False) -> Dict[str, List[str]]:
     scene_splits = {
         "train": train,
         "train_val": train_val,
-        "val": test,
+        "val": train_val,
         "test": test,
         "mini_train": mini_train,
         "mini_val": mini_val,
