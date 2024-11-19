@@ -13,7 +13,7 @@ classifiers = [
     "License :: OSI Approved :: Apache Software License",
 ]
 name = "vod-devkit"
-version = "1.1.0"
+version = "1.1.1"
 authors = [{ name = "Hidde Boekema", email = "h.j.boekema@tudelft.nl" }]
 description = "The official devkit of the View-of-Delft Prediction dataset."
 readme = "README.md"
@@ -22,9 +22,9 @@ dependencies = [
     "cachetools",
     "descartes",
     "fire",
-    "matplotlib<3.6.0",
-    "numpy>=1.22.0",
-    "opencv-python>=4.5.4.58",
+    "matplotlib",
+    "numpy",
+    "opencv-python",
     "Pillow>6.2.1",
     "pyquaternion>=0.9.5",
     "scikit-learn",
