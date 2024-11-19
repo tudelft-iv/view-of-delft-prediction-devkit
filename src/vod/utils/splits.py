@@ -73,12 +73,12 @@ def create_splits_logs(split: str, vod_: VOD) -> List[str]:
         ), "Requested split {} which is not compatible with VOD version {}".format(
             split, version
         )
-    elif split in {"mini_train", "mini_val"}:
-        assert version.endswith(
-            "mini"
-        ), "Requested split {} which is not compatible with VOD version {}".format(
-            split, version
-        )
+    # elif split in {"mini_train", "mini_val"}: TODO
+    #     assert version.endswith(
+    #         "mini"
+    #     ), "Requested split {} which is not compatible with VOD version {}".format(
+    #         split, version
+    #     )
     elif split == "test":
         assert version.endswith(
             "test"
@@ -123,8 +123,8 @@ def create_splits_scenes(verbose: bool = False) -> Dict[str, List[str]]:
         "train_val": train_val,
         "val": train_val,
         "test": test,
-        "mini_train": mini_train,
-        "mini_val": mini_val,
+        # "mini_train": mini_train, TODO
+        # "mini_val": mini_val, TODO
     }
 
     # Optional: Print scene-level stats.
