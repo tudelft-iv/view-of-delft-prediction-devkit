@@ -43,7 +43,7 @@ packages = [
 
 setuptools.setup(
     name="vod-devkit",
-    version="1.0.2",
+    version="1.0.3",
     author="Hidde Boekema",
     author_email="h.j.boekema@tudelft.nl",
     description="The official devkit of the View-of-Delft Prediction dataset.",
