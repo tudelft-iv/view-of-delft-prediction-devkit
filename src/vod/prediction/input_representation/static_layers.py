@@ -291,13 +291,16 @@ class StaticLayerRasterizer(StaticLayerRepresentation):
 
         x, y = sample_annotation["translation"][:2]
 
-        yaw = quaternion_yaw(Quaternion(sample_annotation["rotation"]))
+        # smooth_orientation = True
+        smooth_orientation = False  # default
+        if smooth_orientation:
+            # get smoothed orientation to reduce 'jumps' in visualisation
+            rotation = smooth_rotation(self.helper, instance_token, sample_token)
+            # print("agent", Quaternion(rotation).axis, Quaternion(rotation).angle)
+            yaw = quaternion_yaw(Quaternion(rotation))
+        else:
+            yaw = quaternion_yaw(Quaternion(sample_annotation["rotation"]))
 
-        # get smoothed orientation to reduce 'jumps' in visualisation
-        # rotation = smooth_rotation(self.helper, instance_token, sample_token)
-        # print("static layer", Quaternion(rotation).axis, Quaternion(rotation).degrees)
-
-        # yaw = quaternion_yaw(Quaternion(rotation))
         yaw_corrected = correct_yaw(yaw)
 
         image_side_length = 2 * max(

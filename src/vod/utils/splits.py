@@ -20,7 +20,7 @@ train = [
     "87cgygi3l41q3ft0ct9dizxclqg4b434",
 ]
 
-val = [
+train_val = [
     "smsz20lamf98gmpt1ppia0oefubih4kw",
     "63p8qt0d4biowur5es45sojf7fj3h5iu",
     "9q5jy0dlaz7blaw6fd1fizdnnw2dl4to",
@@ -67,18 +67,18 @@ def create_splits_logs(split: str, vod_: VOD) -> List[str]:
 
     # Check compatibility of split with vod_.version.
     version = vod_.version
-    if split in {"train", "val"}:
+    if split in {"train", "train_val", "val"}:
         assert version.endswith(
             "trainval"
         ), "Requested split {} which is not compatible with VOD version {}".format(
             split, version
         )
-    elif split in {"mini_train", "mini_val"}:
-        assert version.endswith(
-            "mini"
-        ), "Requested split {} which is not compatible with VOD version {}".format(
-            split, version
-        )
+    # elif split in {"mini_train", "mini_val"}: TODO
+    #     assert version.endswith(
+    #         "mini"
+    #     ), "Requested split {} which is not compatible with VOD version {}".format(
+    #         split, version
+    #     )
     elif split == "test":
         assert version.endswith(
             "test"
@@ -113,17 +113,18 @@ def create_splits_scenes(verbose: bool = False) -> Dict[str, List[str]]:
     :return: A mapping from split name to a list of scenes names in that split.
     """
     # Use hard-coded splits.
-    all_scenes = train + val + test
+    all_scenes = train + train_val + test
     NUM_SCENES = 23
     assert (
         len(all_scenes) == NUM_SCENES and len(set(all_scenes)) == NUM_SCENES
     ), "Error: Splits incomplete!"
     scene_splits = {
         "train": train,
-        "val": val,
+        "train_val": train_val,
+        "val": train_val,
         "test": test,
-        "mini_train": mini_train,
-        "mini_val": mini_val,
+        # "mini_train": mini_train, TODO
+        # "mini_val": mini_val, TODO
     }
 
     # Optional: Print scene-level stats.

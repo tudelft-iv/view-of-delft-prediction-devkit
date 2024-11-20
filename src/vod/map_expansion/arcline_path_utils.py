@@ -111,8 +111,9 @@ def angle_between_vectors(v1, v2):
 
 
 def tangent_length(spline: BSpline, u: float):
-    x_deriv, y_deriv = splev(u, spline, 1)
-    return np.sqrt(x_deriv ** 2 + y_deriv ** 2)
+    # x_deriv, y_deriv = splev(u, spline, 1)
+    x_deriv, y_deriv = spline(u, 1)
+    return np.sqrt(x_deriv**2 + y_deriv**2)
 
 
 def spline_length(spline: BSpline):

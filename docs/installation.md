@@ -19,14 +19,14 @@ cd && git clone https://github.com/tudelft-iv/vod-devkit.git
 
 ## Install Python
 
-The devkit is tested for Python 3.6 onwards, but we recommend to use Python 3.7.
+The devkit is tested for Python 3.8 onwards, but we recommend to use Python 3.8.
 For Ubuntu: If the right Python version is not already installed on your system, install it by running:
 ```
 sudo apt install python-pip
 sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt-get update
-sudo apt-get install python3.7
-sudo apt-get install python3.7-dev
+sudo apt-get install python3.8
+sudo apt-get install python3.8-dev
 ```
 For Mac OS download and install from `https://www.python.org/downloads/mac-osx/`.
 
@@ -40,7 +40,7 @@ See the [official Miniconda page](https://conda.io/en/latest/miniconda.html).
 #### Setup a Conda environment
 We create a new Conda environment named `vod-devkit`. 
 ```
-conda create --name vod-devkit python=3.7
+conda create --name vod-devkit python=3.8
 ```
 
 #### Activate the environment
@@ -79,7 +79,7 @@ For more details, see [this nuscenes-devkit issue](https://github.com/nutonomy/n
 #### Create the virtual environment
 We create a new virtual environment named `vod-devkit`.
 ```
-mkvirtualenv vod-devkit --python=python3.7 
+mkvirtualenv vod-devkit --python=python3.8 
 ```
 
 #### Activate the virtual environment
@@ -94,9 +94,9 @@ deactivate
 ```
 
 ## Setup PYTHONPATH
-Add the `python-sdk` directory to your `PYTHONPATH` environmental variable, by adding the following to your `~/.bashrc` (for virtualenvwrapper, you could alternatively add it in `~/.virtualenvs/vod/bin/postactivate`):
+Add the `src` directory to your `PYTHONPATH` environmental variable, by adding the following to your `~/.bashrc` (for virtualenvwrapper, you could alternatively add it in `~/.virtualenvs/vod/bin/postactivate`):
 ```
-export PYTHONPATH="${PYTHONPATH}:$HOME/vod-devkit/python-sdk"
+export PYTHONPATH="${PYTHONPATH}:$HOME/vod-devkit/src"
 ```
 
 ## Install required packages
@@ -130,8 +130,8 @@ backend: TKAgg
 ```
 
 ## Verify install
-To verify your environment run `python -m unittest` in the `python-sdk` folder (TODO make test work; this command will result in failed tests as-is).
+To verify your environment run `python -m unittest` in the `src` folder (TODO make test work; this command will result in failed tests as-is).
 
-You can also run `assert_download.py` in the `python-sdk/vod/tests` folders to verify that all files are in the right place.
+You can also run `assert_download.py` in the `src/vod/tests` folders to verify that all files are in the right place.
 
 That's it, you should be good to go!
