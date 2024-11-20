@@ -20,11 +20,12 @@ The dataset is available in a format based on the [nuScenes dataset](https://www
 
 
 ## Changelog
+- [2024-11-20] Launched the View-of-Delft Prediction leaderboard.
 - [2024-11-15] Released a version of the development kit for Python 3.8.
 - [2024-09-11] Released the View-of-Delft Prediction dataset and development kit.
 
 ## Devkit setup
-The devkit is tested for Python 3.8. For a version of the devkit that is compatible with Python 3.6 and 3.7, see the v1.0.1 [PyPI release](https://pypi.org/project/vod-devkit/1.0.1/) or [tag](https://github.com/tudelft-iv/view-of-delft-prediction-devkit/releases/tag/v1.0.1). 
+The devkit is tested for Python 3.6 and 3.7. 
 To install Python, please check [here](https://github.com/tudelft-iv/vod-devkit/blob/master/docs/installation.md#install-python).
 
 Our devkit is available and can be installed via [pip](https://pip.pypa.io/en/stable/installing/):
@@ -65,7 +66,7 @@ jupyter notebook $HOME/vod-devkit/tutorials/vod_tutorial.ipynb
 
 ### Submitting to the VoD-P leaderboard
 
-The VoD-P benchmark leaderboard can be found at TODO.
+The VoD-P benchmark leaderboard can be found at https://eval.ai/web/challenges/challenge-page/2410/overview.
 
 See the [benchmark instructions](https://github.com/tudelft-iv/view-of-delft-prediction-devkit/blob/main/docs/benchmark_instructions.md) for the submission format and rules.
 
