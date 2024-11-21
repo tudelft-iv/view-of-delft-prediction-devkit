@@ -25,7 +25,7 @@ The dataset is available in a format based on the [nuScenes dataset](https://www
 - [2024-09-11] Released the View-of-Delft Prediction dataset and development kit.
 
 ## Devkit setup
-The devkit is tested for Python 3.8. For a version of the devkit that is compatible with Python 3.6 and 3.7, see the v1.0.1 [PyPI release](https://pypi.org/project/vod-devkit/1.0.1/) or [tag](https://github.com/tudelft-iv/view-of-delft-prediction-devkit/releases/tag/v1.0.1). 
+The devkit is tested for Python 3.8. For a version of the devkit that is compatible with Python 3.6 and 3.7, see the v1.0.\* [PyPI releases](https://pypi.org/project/vod-devkit/) or [tags](https://github.com/tudelft-iv/view-of-delft-prediction-devkit/releases/). 
 To install Python, please check [here](https://github.com/tudelft-iv/vod-devkit/blob/master/docs/installation.md#install-python).
 
 Our devkit is available and can be installed via [pip](https://pip.pypa.io/en/stable/installing/):
