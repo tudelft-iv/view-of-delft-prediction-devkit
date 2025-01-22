@@ -10,7 +10,7 @@ On this page we try to answer questions frequently asked by our users.
     - Please see the [View-of-Delft dataset page](https://github.com/tudelft-iv/view-of-delft-dataset#access).
  
 - How can I participate in the VoD-P challenge?
-    - TODO.
+    - See the [challenge page](https://eval.ai/web/challenges/challenge-page/2410/overview).
     
 - How can I get more information on the sensors used?
     - Read the [Sensors and Data](https://github.com/tudelft-iv/view-of-delft-dataset/blob/main/docs/SENSORS_AND_DATA.md) page.
