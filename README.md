@@ -3,6 +3,8 @@ Welcome to the View-of-Delft Prediction (VoD-P) development kit. This repository
 
 ![](TODO)
 
+> **_NOTE:_** Sensor data coming soon!
+
 ## Overview
 - [Introduction](#introduction)
 - [Changelog](#changelog)
