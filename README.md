@@ -73,6 +73,12 @@ The VoD-P benchmark leaderboard can be found at https://eval.ai/web/challenges/c
 See the [benchmark instructions](https://github.com/tudelft-iv/view-of-delft-prediction-devkit/blob/main/docs/benchmark_instructions.md) for the submission format and rules.
 
 
+## Acknowledgements
+
+This work was supported by the Dutch Science Foundation NWO-TTW, within the Efficient Deep Learning project (P16-25).
+
+We thank Zimin Xia, Mubariz Zaffar, and Holger Caesar for their extensive help in preparing the prediction dataset.
+
 ## Citation
 Please use the following citation when referencing the View-of-Delft (VoD-P) dataset:
 ```
@@ -88,5 +94,3 @@ Please use the following citation when referencing the View-of-Delft (VoD-P) dat
   doi={10.1109/LRA.2024.3385693}}
 
 ```
-
-
