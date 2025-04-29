@@ -77,7 +77,7 @@ See the [benchmark instructions](https://github.com/tudelft-iv/view-of-delft-pre
 
 This work was supported by the Dutch Science Foundation NWO-TTW, within the Efficient Deep Learning project (P16-25).
 
-We thank Zimin Xia, Mubariz Zaffar, and Holger Caesar for their extensive help in preparing the prediction dataset.
+We thank Zimin Xia, Mubariz Zaffar, András Pálffy, and Holger Caesar for their extensive help in preparing the dataset.
 
 ## Citation
 Please use the following citation when referencing the View-of-Delft (VoD-P) dataset:
